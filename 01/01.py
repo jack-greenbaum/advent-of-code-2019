@@ -14,7 +14,7 @@ def get_required_fuel(module_mass, fuel_requires_fuel=False):
     fuel = floor(module_mass / 3) - 2
     if not fuel_requires_fuel or fuel < 0:
         return(max(fuel, 0))
-    return(fuel + get_required_fuel(fuel, True))
+    return fuel + get_required_fuel(fuel, True)
 
 
 def main():
