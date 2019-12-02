@@ -19,13 +19,12 @@ def get_required_fuel(module_mass, fuel_requires_fuel=False):
 
 def main():
     total = 0
-    for module_mass in read_from_file():
-        total += get_required_fuel(int(module_mass))
-    print("Total for Part 1: {}".format(total))
-
     total_with_fuel_mass = 0
     for module_mass in read_from_file():
+        total += get_required_fuel(int(module_mass))
         total_with_fuel_mass += get_required_fuel(int(module_mass), True)
+
+    print("Total for Part 1: {}".format(total))
     print("Total for Part 2: {}".format(total_with_fuel_mass))
 
 
