@@ -6,10 +6,10 @@ END = 657474
 
 
 # Given a number, check that there is at least one pair and consecutives do not decrease.
-def matches_criteria(number, exact_doubles=False):
-    str_number = str(number)
+def matches_criteria(str_number, exact_doubles=False):
     current = 0
     digits = defaultdict(int)
+
     for digit in str_number:
         digit = int(digit)
         if digit < current:
@@ -22,8 +22,7 @@ def matches_criteria(number, exact_doubles=False):
             current = digit
 
     if exact_doubles:
-        if 2 in digits.values():
-            return True
+        return 2 in digits.values()
     else:
         for count in digits.values():
             if count >= 2:
@@ -34,14 +33,14 @@ def matches_criteria(number, exact_doubles=False):
 def main():
     count = 0
     for num in range(START, END):
-        if matches_criteria(num):
+        if matches_criteria(str(num)):
             count += 1
 
     print("Answer for Part 1: {}".format(count))
 
     count = 0
     for num in range(START, END):
-        if matches_criteria(num, True):
+        if matches_criteria(str(num), True):
             count += 1
 
     print("Answer for Part 2: {}".format(count))
