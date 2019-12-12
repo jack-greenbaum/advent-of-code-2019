@@ -2,7 +2,6 @@
 from copy import deepcopy
 from itertools import permutations, cycle
 import operator
-import threading
 
 MACHINE_INPUTS = {
     'A': 'E',
